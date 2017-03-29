@@ -55,12 +55,6 @@ find_package(ZLIB ${ZLIB_VERSION} REQUIRED)
 find_package(LLVM ${LLVM_VERSION} CONFIG REQUIRED)
 find_package(Clang ${CLANG_VERSION} CONFIG REQUIRED)
 
-if( ${CMAKE_SYSTEM_NAME} STREQUAL "Linux" )
-  SET(PLATFORM_LIBS ${PLATFORM_LIBS} "dl" "pthread" "tinfo")
-elseif( ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin" )
-  SET(PLATFORM_LIBS ${PLATFORM_LIBS} "ncurses")
-endif()
-
 set(SOURCE_FILES
   ${CMAKE_CURRENT_SOURCE_DIR}/version.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/model.cpp
