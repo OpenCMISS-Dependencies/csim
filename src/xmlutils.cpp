@@ -18,14 +18,14 @@ class LibXMLWrapper
 public:
     LibXMLWrapper()
     {
-        std::cout << "initialise libxml\n";
+      /* std::cout << "initialise libxml\n"; */
         /* Init libxml */
         xmlInitParser();
         LIBXML_TEST_VERSION
     }
     ~LibXMLWrapper()
     {
-        std::cout << "terminate libxml\n";
+      /* std::cout << "terminate libxml\n"; */
         /* Shutdown libxml */
         xmlCleanupParser();
     }
