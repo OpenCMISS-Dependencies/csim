@@ -153,11 +153,11 @@ install(FILES
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/csim-config-dependencies.cmake 
     "include(CMakeFindDependencyMacro)\r\n"
 	"set(${PROJECT_NAME}_IMPORT_PREFIX \${_IMPORT_PREFIX})\r\n"   
-    "find_dependency(LibCellML ${LIBCELLML_VERSION})\r\n"
-    "find_dependency(LLVM ${LLVM_VERSION})\r\n"
-    "find_dependency(ZLIB ${ZLIB_VERSION})\r\n"
-    "find_dependency(LibXml2 ${LIBXML2_VERSION})\r\n"
-    "find_dependency(Clang ${CLANG_VERSION})\r\n"
+    "set(LIBCELLML_FIND_SYSTEM ${LIBCELLML_FIND_SYSTEM})\r\nfind_dependency(LibCellML ${LIBCELLML_VERSION})\r\n"
+    "set(LLVM_FIND_SYSTEM ${LLVM_FIND_SYSTEM})\r\nfind_dependency(LLVM ${LLVM_VERSION})\r\n"
+    "set(ZLIB_FIND_SYSTEM ${ZLIB_FIND_SYSTEM})\r\nfind_dependency(ZLIB ${ZLIB_VERSION})\r\n"
+    "set(LIBXML2_FIND_SYSTEM ${LIBXML2_FIND_SYSTEM})\r\nfind_dependency(LibXml2 ${LIBXML2_VERSION})\r\n"
+    "set(CLANG_FIND_SYSTEM ${CLANG_FIND_SYSTEM})\r\nfind_dependency(Clang ${CLANG_VERSION})\r\n"
     "set(_IMPORT_PREFIX \${${PROJECT_NAME}_IMPORT_PREFIX})"
 )
 
