@@ -119,6 +119,14 @@ set_target_properties(csim PROPERTIES
 )
 
 set_target_properties(csim PROPERTIES CXX_STANDARD 11 CXX_STANDARD_REQUIRED ON)
+# Back up detection required for Intel compiler
+if (CMAKE_CXX_COMPILER_ID MATCHES "Intel")
+  if (CMAKE_VERSION VERSION_LESS 3.8 AND CMAKE_CXX_COMPILER_VERSION GREATER 16)
+    set_target_properties(csim PROPERTIES COMPILE_FLAGS "-std=c++11")
+  elseif (CMAKE_VERSION VERSION_GREATER 3.7 AND CMAKE_CXX_COMPILER_VERSION GREATER 17)
+    set_target_properties(csim PROPERTIES COMPILE_FLAGS "-std=c++11")
+  endif ()
+endif ()
 
 if(CSIM_TREAT_WARNINGS_AS_ERRORS)
   target_warnings_as_errors(csim)
