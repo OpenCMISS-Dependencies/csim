@@ -109,7 +109,6 @@ target_link_libraries(csim PUBLIC
   clangCodeGen
   PRIVATE
   xml2
-  zlib
   ${PLATFORM_LIBS}
 )
 
